@@ -1,0 +1,141 @@
+{
+    "name": "XRayChoreography",
+    "methods": [
+        {
+            "name": "appointment",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "request",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "response",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "payload"
+                },
+                {
+                    "type": "string",
+                    "name": "payload1"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "registration",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                },
+                {
+                    "type": "string",
+                    "name": "payload1"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "certification",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "temperature",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "checkin",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "confirmation",
+            "args": [
+                {
+                    "type": "uint64",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "analysis",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "report",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "payload"
+                }
+            ],
+            "returns": {
+                "type": "void"
+            }
+        },
+        {
+            "name": "execute",
+            "args": [],
+            "returns": {
+                "type": "void"
+            }
+        }
+    ],
+    "networks": {}
+}

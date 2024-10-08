@@ -1,0 +1,61 @@
+{
+  "hints": {},
+  "source": {
+    "approval": "I3ByYWdtYSB2ZXJzaW9uIDgKaW50Y2Jsb2NrIDAKdHhuIE51bUFwcEFyZ3MKaW50Y18wIC8vIDAKPT0KYm56IG1haW5fbDIKZXJyCm1haW5fbDI6CnR4biBPbkNvbXBsZXRpb24KaW50Y18wIC8vIE5vT3AKPT0KYm56IG1haW5fbDQKZXJyCm1haW5fbDQ6CnR4biBBcHBsaWNhdGlvbklECmludGNfMCAvLyAwCj09CmFzc2VydApwdXNoaW50IDEgLy8gMQpyZXR1cm4=",
+    "clear": "I3ByYWdtYSB2ZXJzaW9uIDgKcHVzaGludCAwIC8vIDAKcmV0dXJu"
+  },
+  "state": {
+    "global": {
+      "num_byte_slices": 8,
+      "num_uints": 8
+    },
+    "local": {
+      "num_byte_slices": 0,
+      "num_uints": 0
+    }
+  },
+  "schema": {
+    "global": {
+      "declared": {
+        "e1": {
+          "type": "uint64",
+          "key": "e1",
+          "descr": "Token on edge e1"
+        },
+        "e2": {
+          "type": "uint64",
+          "key": "e2",
+          "descr": "Token on edge e2"
+        },
+        "e3": {
+          "type": "uint64",
+          "key": "e3",
+          "descr": "Token on edge e3"
+        },
+        "m1_payload": {
+          "type": "bytes",
+          "key": "m1_payload",
+          "descr": "Payload of message m1"
+        },
+        "m1_status": {
+          "type": "uint64",
+          "key": "m1_status",
+          "descr": "Status of message m1 (enabled or disabled)"
+        }
+      },
+      "reserved": {}
+    },
+    "local": {
+      "declared": {},
+      "reserved": {}
+    }
+  },
+  "contract": {
+    "name": "SimpleChoreography",
+    "methods": [],
+    "networks": {}
+  },
+  "bare_call_config": {
+    "no_op": "CREATE"
+  }
+}

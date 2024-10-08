@@ -1,0 +1,346 @@
+#pragma version 8
+intcblock 0 1
+bytecblock 0x6532 0x6533 0x6531 0x6d315f737461747573 0x6d315f7061796c6f6164 0x
+txn NumAppArgs
+intc_0 // 0
+==
+bnz main_l14
+txna ApplicationArgs 0
+pushbytes 0x80d06c99 // "start1()void"
+==
+bnz main_l13
+txna ApplicationArgs 0
+pushbytes 0xd309e23c // "task1()void"
+==
+bnz main_l12
+txna ApplicationArgs 0
+pushbytes 0x82c21d9f // "end1()void"
+==
+bnz main_l11
+txna ApplicationArgs 0
+pushbytes 0x065c597b // "m1(address,address,string)void"
+==
+bnz main_l10
+txna ApplicationArgs 0
+pushbytes 0x6529ac24 // "store_intermediate_states()void"
+==
+bnz main_l9
+txna ApplicationArgs 0
+pushbytes 0xcc047837 // "execute()void"
+==
+bnz main_l8
+err
+main_l8:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub executecaster_12
+intc_1 // 1
+return
+main_l9:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub storeintermediatestatescaster_11
+intc_1 // 1
+return
+main_l10:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub m1caster_10
+intc_1 // 1
+return
+main_l11:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub end1caster_9
+intc_1 // 1
+return
+main_l12:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub task1caster_8
+intc_1 // 1
+return
+main_l13:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub start1caster_7
+intc_1 // 1
+return
+main_l14:
+txn OnCompletion
+intc_0 // NoOp
+==
+bnz main_l16
+err
+main_l16:
+txn ApplicationID
+intc_0 // 0
+==
+assert
+callsub create_0
+intc_1 // 1
+return
+
+// create
+create_0:
+proto 0 0
+bytec_2 // "e1"
+intc_1 // 1
+app_global_put
+bytec_0 // "e2"
+intc_0 // 0
+app_global_put
+bytec_1 // "e3"
+intc_0 // 0
+app_global_put
+bytec 4 // "m1_payload"
+bytec 5 // ""
+app_global_put
+bytec_3 // "m1_status"
+intc_0 // 0
+app_global_put
+retsub
+
+// start1
+start1_1:
+proto 0 0
+bytec_2 // "e1"
+app_global_get
+intc_0 // 0
+>
+bz start1_1_l2
+bytec_2 // "e1"
+bytec_2 // "e1"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec_0 // "e2"
+bytec_0 // "e2"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub storeintermediatestates_5
+pushbytes 0x457865637574696f6e206f6620737461727431 // "Execution of start1"
+log
+start1_1_l2:
+intc_1 // 1
+return
+
+// task1
+task1_2:
+proto 0 0
+bytec_0 // "e2"
+app_global_get
+intc_0 // 0
+>
+bz task1_2_l2
+bytec_0 // "e2"
+bytec_0 // "e2"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec_3 // "m1_status"
+intc_1 // 1
+app_global_put
+callsub storeintermediatestates_5
+pushbytes 0x457865637574696f6e206f66207461736b31 // "Execution of task1"
+log
+task1_2_l2:
+intc_1 // 1
+return
+
+// end1
+end1_3:
+proto 0 0
+bytec_1 // "e3"
+app_global_get
+intc_0 // 0
+>
+bz end1_3_l2
+bytec_1 // "e3"
+bytec_1 // "e3"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+callsub storeintermediatestates_5
+pushbytes 0x457865637574696f6e206f6620656e6431 // "Execution of end1"
+log
+end1_3_l2:
+intc_1 // 1
+return
+
+// m1
+m1_4:
+proto 3 0
+bytec_3 // "m1_status"
+app_global_get
+intc_1 // 1
+==
+assert
+txn Sender
+frame_dig -3
+==
+assert
+bytec 4 // "m1_payload"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec_3 // "m1_status"
+intc_0 // 0
+app_global_put
+bytec_1 // "e3"
+bytec_1 // "e3"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub storeintermediatestates_5
+pushbytes 0x4d657373616765206d312073656e74 // "Message m1 sent"
+log
+intc_1 // 1
+return
+
+// store_intermediate_states
+storeintermediatestates_5:
+proto 0 0
+pushbytes 0x65315f7374617465 // "e1_state"
+bytec_2 // "e1"
+app_global_get
+app_global_put
+pushbytes 0x65325f7374617465 // "e2_state"
+bytec_0 // "e2"
+app_global_get
+app_global_put
+pushbytes 0x65335f7374617465 // "e3_state"
+bytec_1 // "e3"
+app_global_get
+app_global_put
+bytec 4 // "m1_payload"
+bytec 4 // "m1_payload"
+app_global_get
+app_global_put
+intc_1 // 1
+return
+
+// execute
+execute_6:
+proto 0 0
+callsub start1_1
+bytec_0 // "e2"
+app_global_get
+intc_0 // 0
+>
+bnz execute_6_l5
+execute_6_l1:
+bytec_3 // "m1_status"
+app_global_get
+intc_1 // 1
+==
+bnz execute_6_l4
+bytec_1 // "e3"
+app_global_get
+intc_0 // 0
+>
+bz execute_6_l6
+callsub end1_3
+b execute_6_l6
+execute_6_l4:
+pushbytes 0x2a2a2a20457865637574696f6e2073757370656e6465642c2077616974696e6720666f72206d657373616765206d31202a2a2a // "*** Execution suspended, waiting for message m1 ***"
+log
+intc_0 // 0
+return
+execute_6_l5:
+callsub task1_2
+b execute_6_l1
+execute_6_l6:
+pushbytes 0x2a2a2a2a2a20454e44206f66207468652063686f72656f67726170687920696e7374616e6365202a2a2a2a2a // "***** END of the choreography instance *****"
+log
+intc_1 // 1
+return
+
+// start1_caster
+start1caster_7:
+proto 0 0
+callsub start1_1
+retsub
+
+// task1_caster
+task1caster_8:
+proto 0 0
+callsub task1_2
+retsub
+
+// end1_caster
+end1caster_9:
+proto 0 0
+callsub end1_3
+retsub
+
+// m1_caster
+m1caster_10:
+proto 0 0
+bytec 5 // ""
+dupn 2
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+frame_dig 0
+frame_dig 1
+frame_dig 2
+callsub m1_4
+retsub
+
+// store_intermediate_states_caster
+storeintermediatestatescaster_11:
+proto 0 0
+callsub storeintermediatestates_5
+retsub
+
+// execute_caster
+executecaster_12:
+proto 0 0
+callsub execute_6
+retsub

@@ -1,0 +1,1559 @@
+#pragma version 8
+intcblock 0 1
+bytecblock 0x656e61626c65645f6d65737361676573 0x 0x653135 0x6535 0x457865637574696f6e 0x6533 0x6531 0x653130 0x653131 0x653132 0x653133 0x653134 0x653136 0x653137 0x653138 0x653139 0x6532 0x6534 0x6536 0x6537 0x6538 0x6539 0x6530 0x7061796c6f61645f636f6e6669726d6174696f6e 0x7061796c6f61645f726573706f6e73655f6163636570746564 0x7374617475735f616e616c79736973 0x7374617475735f6170706f696e746d656e74 0x7374617475735f63657274696669636174696f6e 0x7374617475735f636865636b696e 0x7374617475735f636f6e6669726d6174696f6e 0x7374617475735f726567697374726174696f6e 0x7374617475735f7265706f7274 0x7374617475735f72657175657374 0x7374617475735f726573706f6e7365 0x7374617475735f74656d7065726174757265 0x4d657373616765 0x657865637574696f6e 0x7061796c6f61645f616e616c79736973 0x7061796c6f61645f6170706f696e746d656e74 0x7061796c6f61645f63657274696669636174696f6e 0x7061796c6f61645f636865636b696e 0x7061796c6f61645f726567697374726174696f6e5f6170706f696e746d656e744964 0x7061796c6f61645f726567697374726174696f6e5f64617465 0x7061796c6f61645f7265706f7274 0x7061796c6f61645f72657175657374 0x7061796c6f61645f726573706f6e73655f64617465 0x7061796c6f61645f74656d7065726174757265
+txn NumAppArgs
+intc_0 // 0
+==
+bnz main_l24
+txna ApplicationArgs 0
+pushbytes 0xea166472 // "appointment(string)void"
+==
+bnz main_l23
+txna ApplicationArgs 0
+pushbytes 0xc2a88e50 // "request(string)void"
+==
+bnz main_l22
+txna ApplicationArgs 0
+pushbytes 0x55d3f539 // "response(uint64,string)void"
+==
+bnz main_l21
+txna ApplicationArgs 0
+pushbytes 0x6aa031fa // "registration(string,string)void"
+==
+bnz main_l20
+txna ApplicationArgs 0
+pushbytes 0x1718f518 // "certification(string)void"
+==
+bnz main_l19
+txna ApplicationArgs 0
+pushbytes 0x58b5c2d1 // "temperature(string)void"
+==
+bnz main_l18
+txna ApplicationArgs 0
+pushbytes 0x83c80b9c // "checkin(string)void"
+==
+bnz main_l17
+txna ApplicationArgs 0
+pushbytes 0x2c41d6f0 // "confirmation(uint64)void"
+==
+bnz main_l16
+txna ApplicationArgs 0
+pushbytes 0x129f780b // "analysis(string)void"
+==
+bnz main_l15
+txna ApplicationArgs 0
+pushbytes 0x3372f37d // "report(string)void"
+==
+bnz main_l14
+txna ApplicationArgs 0
+pushbytes 0xcc047837 // "execute()void"
+==
+bnz main_l13
+err
+main_l13:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub executecaster_42
+intc_1 // 1
+return
+main_l14:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub reportcaster_41
+intc_1 // 1
+return
+main_l15:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub analysiscaster_40
+intc_1 // 1
+return
+main_l16:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub confirmationcaster_39
+intc_1 // 1
+return
+main_l17:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub checkincaster_38
+intc_1 // 1
+return
+main_l18:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub temperaturecaster_37
+intc_1 // 1
+return
+main_l19:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub certificationcaster_36
+intc_1 // 1
+return
+main_l20:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub registrationcaster_35
+intc_1 // 1
+return
+main_l21:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub responsecaster_34
+intc_1 // 1
+return
+main_l22:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub requestcaster_33
+intc_1 // 1
+return
+main_l23:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub appointmentcaster_32
+intc_1 // 1
+return
+main_l24:
+txn OnCompletion
+intc_0 // NoOp
+==
+bnz main_l26
+err
+main_l26:
+txn ApplicationID
+intc_0 // 0
+==
+assert
+callsub create_0
+intc_1 // 1
+return
+
+// create
+create_0:
+proto 0 0
+bytec 22 // "e0"
+intc_1 // 1
+app_global_put
+bytec 6 // "e1"
+intc_0 // 0
+app_global_put
+bytec 7 // "e10"
+intc_0 // 0
+app_global_put
+bytec 8 // "e11"
+intc_0 // 0
+app_global_put
+bytec 9 // "e12"
+intc_0 // 0
+app_global_put
+bytec 10 // "e13"
+intc_0 // 0
+app_global_put
+bytec 11 // "e14"
+intc_0 // 0
+app_global_put
+bytec_2 // "e15"
+intc_0 // 0
+app_global_put
+bytec 12 // "e16"
+intc_0 // 0
+app_global_put
+bytec 13 // "e17"
+intc_0 // 0
+app_global_put
+bytec 14 // "e18"
+intc_0 // 0
+app_global_put
+bytec 15 // "e19"
+intc_0 // 0
+app_global_put
+bytec 16 // "e2"
+intc_0 // 0
+app_global_put
+bytec 5 // "e3"
+intc_0 // 0
+app_global_put
+bytec 17 // "e4"
+intc_0 // 0
+app_global_put
+bytec_3 // "e5"
+intc_0 // 0
+app_global_put
+bytec 18 // "e6"
+intc_0 // 0
+app_global_put
+bytec 19 // "e7"
+intc_0 // 0
+app_global_put
+bytec 20 // "e8"
+intc_0 // 0
+app_global_put
+bytec 21 // "e9"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+intc_0 // 0
+app_global_put
+bytec 37 // "payload_analysis"
+bytec_1 // ""
+app_global_put
+bytec 38 // "payload_appointment"
+bytec_1 // ""
+app_global_put
+bytec 39 // "payload_certification"
+bytec_1 // ""
+app_global_put
+bytec 40 // "payload_checkin"
+bytec_1 // ""
+app_global_put
+bytec 23 // "payload_confirmation"
+intc_0 // 0
+app_global_put
+bytec 41 // "payload_registration_appointmentId"
+bytec_1 // ""
+app_global_put
+bytec 42 // "payload_registration_date"
+bytec_1 // ""
+app_global_put
+bytec 43 // "payload_report"
+bytec_1 // ""
+app_global_put
+bytec 44 // "payload_request"
+bytec_1 // ""
+app_global_put
+bytec 24 // "payload_response_accepted"
+intc_0 // 0
+app_global_put
+bytec 45 // "payload_response_date"
+bytec_1 // ""
+app_global_put
+bytec 46 // "payload_temperature"
+bytec_1 // ""
+app_global_put
+bytec 25 // "status_analysis"
+intc_0 // 0
+app_global_put
+bytec 26 // "status_appointment"
+intc_0 // 0
+app_global_put
+bytec 27 // "status_certification"
+intc_0 // 0
+app_global_put
+bytec 28 // "status_checkin"
+intc_0 // 0
+app_global_put
+bytec 29 // "status_confirmation"
+intc_0 // 0
+app_global_put
+bytec 30 // "status_registration"
+intc_0 // 0
+app_global_put
+bytec 31 // "status_report"
+intc_0 // 0
+app_global_put
+bytec 32 // "status_request"
+intc_0 // 0
+app_global_put
+bytec 33 // "status_response"
+intc_0 // 0
+app_global_put
+bytec 34 // "status_temperature"
+intc_0 // 0
+app_global_put
+retsub
+
+// start1
+start1_1:
+proto 0 1
+bytec 22 // "e0"
+app_global_get
+intc_0 // 0
+>
+bnz start1_1_l2
+intc_0 // 0
+b start1_1_l3
+start1_1_l2:
+bytec 22 // "e0"
+intc_0 // 0
+app_global_put
+bytec 6 // "e1"
+bytec 6 // "e1"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+start1_1_l3:
+retsub
+
+// take_appointment
+takeappointment_2:
+proto 0 1
+bytec 6 // "e1"
+app_global_get
+intc_0 // 0
+>
+bnz takeappointment_2_l2
+intc_0 // 0
+b takeappointment_2_l3
+takeappointment_2_l2:
+bytec 35 // "Message"
+pushbytes 0x50617469656e742027726164696f6c6f6779273a206170706f696e746d656e74 // "Patient 'radiology': appointment"
+app_global_put
+bytec 6 // "e1"
+bytec 6 // "e1"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 26 // "status_appointment"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+takeappointment_2_l3:
+retsub
+
+// appointment
+appointment_3:
+proto 1 0
+bytec 26 // "status_appointment"
+app_global_get
+intc_1 // 1
+==
+bnz appointment_3_l2
+intc_0 // 0
+return
+appointment_3_l2:
+bytec 38 // "payload_appointment"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 26 // "status_appointment"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 16 // "e2"
+bytec 16 // "e2"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// xor1
+xor1_4:
+proto 0 1
+bytec 16 // "e2"
+app_global_get
+intc_0 // 0
+>
+bnz xor1_4_l4
+bytec 18 // "e6"
+app_global_get
+intc_0 // 0
+>
+bnz xor1_4_l3
+intc_0 // 0
+b xor1_4_l5
+xor1_4_l3:
+bytec 18 // "e6"
+bytec 18 // "e6"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 5 // "e3"
+bytec 5 // "e3"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+b xor1_4_l5
+xor1_4_l4:
+bytec 16 // "e2"
+bytec 16 // "e2"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 5 // "e3"
+bytec 5 // "e3"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+xor1_4_l5:
+retsub
+
+// check_availability
+checkavailability_5:
+proto 0 1
+bytec 5 // "e3"
+app_global_get
+intc_0 // 0
+>
+bnz checkavailability_5_l2
+intc_0 // 0
+b checkavailability_5_l3
+checkavailability_5_l2:
+bytec 35 // "Message"
+pushbytes 0x726164696f6c6f6779202777617264273a2072657175657374 // "radiology 'ward': request"
+app_global_put
+bytec 5 // "e3"
+bytec 5 // "e3"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 32 // "status_request"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+checkavailability_5_l3:
+retsub
+
+// request
+request_6:
+proto 1 0
+bytec 32 // "status_request"
+app_global_get
+intc_1 // 1
+==
+bnz request_6_l2
+intc_0 // 0
+return
+request_6_l2:
+bytec 44 // "payload_request"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 32 // "status_request"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 17 // "e4"
+bytec 17 // "e4"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// check_availability_resp
+checkavailabilityresp_7:
+proto 0 1
+bytec 17 // "e4"
+app_global_get
+intc_0 // 0
+>
+bnz checkavailabilityresp_7_l2
+intc_0 // 0
+b checkavailabilityresp_7_l3
+checkavailabilityresp_7_l2:
+bytec 4 // "Execution"
+pushbytes 0x776172642c20726164696f6c6f6779202c726573706f6e7365 // "ward, radiology ,response"
+app_global_put
+bytec 17 // "e4"
+bytec 17 // "e4"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 33 // "status_response"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+checkavailabilityresp_7_l3:
+retsub
+
+// response
+response_8:
+proto 2 0
+bytec 33 // "status_response"
+app_global_get
+intc_1 // 1
+==
+bnz response_8_l2
+intc_0 // 0
+return
+response_8_l2:
+bytec 24 // "payload_response_accepted"
+frame_dig -2
+app_global_put
+bytec 45 // "payload_response_date"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 33 // "status_response"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec_3 // "e5"
+bytec_3 // "e5"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// xor2
+xor2_9:
+proto 0 1
+bytec_3 // "e5"
+app_global_get
+intc_0 // 0
+>
+bytec 24 // "payload_response_accepted"
+app_global_get
+intc_0 // 0
+==
+&&
+bnz xor2_9_l4
+bytec_3 // "e5"
+app_global_get
+intc_0 // 0
+>
+bytec 24 // "payload_response_accepted"
+app_global_get
+intc_1 // 1
+==
+&&
+bnz xor2_9_l3
+intc_0 // 0
+b xor2_9_l5
+xor2_9_l3:
+bytec_3 // "e5"
+bytec_3 // "e5"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 19 // "e7"
+bytec 19 // "e7"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+b xor2_9_l5
+xor2_9_l4:
+bytec_3 // "e5"
+bytec_3 // "e5"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 18 // "e6"
+bytec 18 // "e6"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+intc_1 // 1
+xor2_9_l5:
+retsub
+
+// confirm_appointment
+confirmappointment_10:
+proto 0 1
+bytec 19 // "e7"
+app_global_get
+intc_0 // 0
+>
+bnz confirmappointment_10_l2
+intc_0 // 0
+b confirmappointment_10_l3
+confirmappointment_10_l2:
+bytec 4 // "Execution"
+pushbytes 0x726164696f6c6f67792c2070617469656e742c20726567697374726174696f6e // "radiology, patient, registration"
+app_global_put
+bytec 19 // "e7"
+bytec 19 // "e7"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 30 // "status_registration"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+confirmappointment_10_l3:
+retsub
+
+// registration
+registration_11:
+proto 2 0
+bytec 30 // "status_registration"
+app_global_get
+intc_1 // 1
+==
+bnz registration_11_l2
+intc_0 // 0
+return
+registration_11_l2:
+bytec 42 // "payload_registration_date"
+frame_dig -2
+extract 2 0
+app_global_put
+bytec 41 // "payload_registration_appointmentId"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 30 // "status_registration"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 20 // "e8"
+bytec 20 // "e8"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// and1
+and1_12:
+proto 0 1
+bytec 20 // "e8"
+app_global_get
+intc_0 // 0
+>
+bnz and1_12_l2
+intc_0 // 0
+b and1_12_l3
+and1_12_l2:
+bytec 20 // "e8"
+bytec 20 // "e8"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 21 // "e9"
+bytec 21 // "e9"
+app_global_get
+intc_1 // 1
++
+app_global_put
+bytec 7 // "e10"
+bytec 7 // "e10"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+and1_12_l3:
+retsub
+
+// check_certification
+checkcertification_13:
+proto 0 1
+bytec 21 // "e9"
+app_global_get
+intc_0 // 0
+>
+bnz checkcertification_13_l2
+intc_0 // 0
+b checkcertification_13_l3
+checkcertification_13_l2:
+bytec 4 // "Execution"
+pushbytes 0x726164696f6c6f67792c2070617469656e742c2043657274696669636174696f6e // "radiology, patient, Certification"
+app_global_put
+bytec 21 // "e9"
+bytec 21 // "e9"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 27 // "status_certification"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+checkcertification_13_l3:
+retsub
+
+// certification
+certification_14:
+proto 1 0
+bytec 27 // "status_certification"
+app_global_get
+intc_1 // 1
+==
+bnz certification_14_l2
+intc_0 // 0
+return
+certification_14_l2:
+bytec 39 // "payload_certification"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 27 // "status_certification"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 8 // "e11"
+bytec 8 // "e11"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// check_temperature
+checktemperature_15:
+proto 0 1
+bytec 7 // "e10"
+app_global_get
+intc_0 // 0
+>
+bnz checktemperature_15_l2
+intc_0 // 0
+b checktemperature_15_l3
+checktemperature_15_l2:
+bytec 4 // "Execution"
+pushbytes 0x726164696f6c6f67792c2070617469656e742c2074656d7065726174757265 // "radiology, patient, temperature"
+app_global_put
+bytec 7 // "e10"
+bytec 7 // "e10"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 34 // "status_temperature"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+checktemperature_15_l3:
+retsub
+
+// temperature
+temperature_16:
+proto 1 0
+bytec 34 // "status_temperature"
+app_global_get
+intc_1 // 1
+==
+bnz temperature_16_l2
+intc_0 // 0
+return
+temperature_16_l2:
+bytec 46 // "payload_temperature"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 34 // "status_temperature"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 9 // "e12"
+bytec 9 // "e12"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// and2
+and2_17:
+proto 0 1
+bytec 8 // "e11"
+app_global_get
+intc_0 // 0
+>
+bytec 9 // "e12"
+app_global_get
+intc_0 // 0
+>
+&&
+bnz and2_17_l2
+intc_0 // 0
+b and2_17_l3
+and2_17_l2:
+bytec 8 // "e11"
+bytec 8 // "e11"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 9 // "e12"
+bytec 9 // "e12"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 10 // "e13"
+bytec 10 // "e13"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+and2_17_l3:
+retsub
+
+// check_in
+checkin_18:
+proto 0 1
+bytec 10 // "e13"
+app_global_get
+intc_0 // 0
+>
+bnz checkin_18_l2
+intc_0 // 0
+b checkin_18_l3
+checkin_18_l2:
+bytec 4 // "Execution"
+pushbytes 0x726164696f6c6f67792c2070617469656e742c20636865636b696e // "radiology, patient, checkin"
+app_global_put
+bytec 10 // "e13"
+bytec 10 // "e13"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 28 // "status_checkin"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+checkin_18_l3:
+retsub
+
+// checkin
+checkin_19:
+proto 1 0
+bytec 28 // "status_checkin"
+app_global_get
+intc_1 // 1
+==
+bnz checkin_19_l2
+intc_0 // 0
+return
+checkin_19_l2:
+bytec 40 // "payload_checkin"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 28 // "status_checkin"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 11 // "e14"
+bytec 11 // "e14"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// check_in_resp
+checkinresp_20:
+proto 0 1
+bytec 11 // "e14"
+app_global_get
+intc_0 // 0
+>
+bnz checkinresp_20_l2
+intc_0 // 0
+b checkinresp_20_l3
+checkinresp_20_l2:
+bytec 4 // "Execution"
+pushbytes 0x726164696f6c6f67792c2070617469656e742c20636f6e6669726d6174696f6e // "radiology, patient, confirmation"
+app_global_put
+bytec 11 // "e14"
+bytec 11 // "e14"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 29 // "status_confirmation"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+checkinresp_20_l3:
+retsub
+
+// confirmation
+confirmation_21:
+proto 1 0
+bytec 29 // "status_confirmation"
+app_global_get
+intc_1 // 1
+==
+bnz confirmation_21_l2
+intc_0 // 0
+return
+confirmation_21_l2:
+bytec 23 // "payload_confirmation"
+frame_dig -1
+app_global_put
+bytec 29 // "status_confirmation"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec_2 // "e15"
+bytec_2 // "e15"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// xor3
+xor3_22:
+proto 0 1
+bytec_2 // "e15"
+app_global_get
+intc_0 // 0
+>
+bytec 23 // "payload_confirmation"
+app_global_get
+intc_1 // 1
+==
+&&
+bnz xor3_22_l4
+bytec_2 // "e15"
+app_global_get
+intc_0 // 0
+>
+bytec 23 // "payload_confirmation"
+app_global_get
+intc_0 // 0
+==
+&&
+bnz xor3_22_l3
+intc_0 // 0
+b xor3_22_l5
+xor3_22_l3:
+bytec 4 // "Execution"
+pushbytes 0x457865637574696f6e206f6620786f723320656c656d656e7420653137206272616e6368 // "Execution of xor3 element e17 branch"
+app_global_put
+bytec_2 // "e15"
+bytec_2 // "e15"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 13 // "e17"
+bytec 13 // "e17"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+b xor3_22_l5
+xor3_22_l4:
+bytec 4 // "Execution"
+pushbytes 0x457865637574696f6e206f6620786f723320656c656d656e7420653136206272616e6368 // "Execution of xor3 element e16 branch"
+app_global_put
+bytec_2 // "e15"
+bytec_2 // "e15"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 12 // "e16"
+bytec 12 // "e16"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+xor3_22_l5:
+retsub
+
+// end1
+end1_23:
+proto 0 1
+bytec 13 // "e17"
+app_global_get
+intc_0 // 0
+>
+bnz end1_23_l2
+intc_0 // 0
+b end1_23_l3
+end1_23_l2:
+bytec 13 // "e17"
+bytec 13 // "e17"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+intc_1 // 1
+end1_23_l3:
+retsub
+
+// perform_xrays
+performxrays_24:
+proto 0 1
+bytec 12 // "e16"
+app_global_get
+intc_0 // 0
+>
+bnz performxrays_24_l2
+intc_0 // 0
+b performxrays_24_l3
+performxrays_24_l2:
+bytec 4 // "Execution"
+pushbytes 0x726164696f6c6f67792c20776172642c20616e616c79736973 // "radiology, ward, analysis"
+app_global_put
+bytec 12 // "e16"
+bytec 12 // "e16"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 25 // "status_analysis"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+performxrays_24_l3:
+retsub
+
+// analysis
+analysis_25:
+proto 1 0
+bytec 25 // "status_analysis"
+app_global_get
+intc_1 // 1
+==
+bnz analysis_25_l2
+intc_0 // 0
+return
+analysis_25_l2:
+bytec 37 // "payload_analysis"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 25 // "status_analysis"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 14 // "e18"
+bytec 14 // "e18"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// send_result
+sendresult_26:
+proto 0 1
+bytec 14 // "e18"
+app_global_get
+intc_0 // 0
+>
+bnz sendresult_26_l2
+intc_0 // 0
+b sendresult_26_l3
+sendresult_26_l2:
+bytec 4 // "Execution"
+pushbytes 0x776172642c2070617469656e742c207265706f7274 // "ward, patient, report"
+app_global_put
+bytec 14 // "e18"
+bytec 14 // "e18"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 31 // "status_report"
+intc_1 // 1
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
++
+app_global_put
+intc_1 // 1
+sendresult_26_l3:
+retsub
+
+// report
+report_27:
+proto 1 0
+bytec 31 // "status_report"
+app_global_get
+intc_1 // 1
+==
+bnz report_27_l2
+intc_0 // 0
+return
+report_27_l2:
+bytec 35 // "Message"
+pushbytes 0x4d65737361676520277265706f7274273a207265636569766564 // "Message 'report': received"
+app_global_put
+bytec 43 // "payload_report"
+frame_dig -1
+extract 2 0
+app_global_put
+bytec 31 // "status_report"
+intc_0 // 0
+app_global_put
+bytec_0 // "enabled_messages"
+bytec_0 // "enabled_messages"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+bytec 15 // "e19"
+bytec 15 // "e19"
+app_global_get
+intc_1 // 1
++
+app_global_put
+callsub execute_31
+retsub
+
+// end2
+end2_28:
+proto 0 1
+bytec 15 // "e19"
+app_global_get
+intc_0 // 0
+>
+bnz end2_28_l2
+intc_0 // 0
+b end2_28_l3
+end2_28_l2:
+bytec 15 // "e19"
+bytec 15 // "e19"
+app_global_get
+intc_1 // 1
+-
+app_global_put
+intc_1 // 1
+end2_28_l3:
+retsub
+
+// executeOneRule
+executeOneRule_29:
+proto 0 1
+callsub start1_1
+callsub takeappointment_2
+||
+callsub xor1_4
+||
+callsub checkavailability_5
+||
+callsub checkavailabilityresp_7
+||
+callsub xor2_9
+||
+callsub confirmappointment_10
+||
+callsub and1_12
+||
+callsub checkcertification_13
+||
+callsub checktemperature_15
+||
+callsub and2_17
+||
+callsub checkin_18
+||
+callsub checkinresp_20
+||
+callsub xor3_22
+||
+callsub end1_23
+||
+callsub performxrays_24
+||
+callsub sendresult_26
+||
+callsub end2_28
+||
+retsub
+
+// get_marking
+getmarking_30:
+proto 0 1
+bytec 22 // "e0"
+app_global_get
+bytec 6 // "e1"
+app_global_get
++
+bytec 16 // "e2"
+app_global_get
++
+bytec 5 // "e3"
+app_global_get
++
+bytec 17 // "e4"
+app_global_get
++
+bytec_3 // "e5"
+app_global_get
++
+bytec 18 // "e6"
+app_global_get
++
+bytec 19 // "e7"
+app_global_get
++
+bytec 20 // "e8"
+app_global_get
++
+bytec 21 // "e9"
+app_global_get
++
+bytec 7 // "e10"
+app_global_get
++
+bytec 8 // "e11"
+app_global_get
++
+bytec 9 // "e12"
+app_global_get
++
+bytec 10 // "e13"
+app_global_get
++
+bytec 11 // "e14"
+app_global_get
++
+bytec_2 // "e15"
+app_global_get
++
+bytec 12 // "e16"
+app_global_get
++
+bytec 13 // "e17"
+app_global_get
++
+bytec 14 // "e18"
+app_global_get
++
+bytec 15 // "e19"
+app_global_get
++
+retsub
+
+// execute
+execute_31:
+proto 0 0
+callsub executeOneRule_29
+bz execute_31_l8
+bytec_0 // "enabled_messages"
+app_global_get
+intc_0 // 0
+>
+bnz execute_31_l7
+callsub getmarking_30
+intc_0 // 0
+>
+bnz execute_31_l6
+bytec 36 // "execution"
+pushbytes 0x5468652063686f72656f67726170687920696e7374616e636520697320434f4d504c455445 // "The choreography instance is COMPLETE"
+app_global_put
+execute_31_l5:
+intc_1 // 1
+return
+execute_31_l6:
+bytec 36 // "execution"
+pushbytes 0x5468652063686f72656f67726170687920696e7374616e636520697320444541444c4f434b4544 // "The choreography instance is DEADLOCKED"
+app_global_put
+b execute_31_l5
+execute_31_l7:
+bytec 36 // "execution"
+pushbytes 0x77616974696e6720666f72204d657373616765 // "waiting for Message"
+app_global_put
+b execute_31_l5
+execute_31_l8:
+retsub
+
+// appointment_caster
+appointmentcaster_32:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub appointment_3
+retsub
+
+// request_caster
+requestcaster_33:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub request_6
+retsub
+
+// response_caster
+responsecaster_34:
+proto 0 0
+intc_0 // 0
+bytec_1 // ""
+txna ApplicationArgs 1
+btoi
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub response_8
+retsub
+
+// registration_caster
+registrationcaster_35:
+proto 0 0
+bytec_1 // ""
+dup
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub registration_11
+retsub
+
+// certification_caster
+certificationcaster_36:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub certification_14
+retsub
+
+// temperature_caster
+temperaturecaster_37:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub temperature_16
+retsub
+
+// checkin_caster
+checkincaster_38:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub checkin_19
+retsub
+
+// confirmation_caster
+confirmationcaster_39:
+proto 0 0
+intc_0 // 0
+txna ApplicationArgs 1
+btoi
+frame_bury 0
+frame_dig 0
+callsub confirmation_21
+retsub
+
+// analysis_caster
+analysiscaster_40:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub analysis_25
+retsub
+
+// report_caster
+reportcaster_41:
+proto 0 0
+bytec_1 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub report_27
+retsub
+
+// execute_caster
+executecaster_42:
+proto 0 0
+callsub execute_31
+retsub
